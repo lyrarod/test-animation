@@ -12,10 +12,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       this.h = h;
       this.y = CANVAS_HEIGHT / 2 - this.h / 2;
       this.color = color;
-      // this.vX = 1 + Math.random() * 2;
       this.vX = 1;
-
-      console.log(this.vX);
     }
 
     render = () => {
