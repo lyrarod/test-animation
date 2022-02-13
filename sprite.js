@@ -14,8 +14,10 @@ export default class Sprite {
     this.vy = 0.3 + Math.random() * 3;
     this.color = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
     this.opacity = 0.1 + Math.random() * 0.9;
+  }
 
-    console.log(this.opacity);
+  get backgroundHit() {
+    return (this.element.style.background = `red`);
   }
 
   get randDirection() {
@@ -23,6 +25,26 @@ export default class Sprite {
     const rand = Math.floor(Math.random() * directions.length);
     return directions[rand];
   }
+
+  hitDetection = () => {
+    if (this.x + this.size >= window.innerWidth) {
+      this.dx *= -1;
+      this.backgroundHit;
+    }
+    if (this.x <= 0) {
+      this.dx *= -1;
+      this.backgroundHit;
+    }
+
+    if (this.y + this.size >= window.innerHeight) {
+      this.dy *= -1;
+      this.backgroundHit;
+    }
+    if (this.y < 0) {
+      this.dy *= -1;
+      this.backgroundHit;
+    }
+  };
 
   render = () => {
     const ball = this.element;
@@ -39,25 +61,8 @@ export default class Sprite {
   };
 
   update = () => {
-    if (this.x + this.size >= window.innerWidth) {
-      this.dx *= -1;
-      this.element.style.background = `crimson`;
-    }
-    if (this.x <= 0) {
-      this.dx *= -1;
-      this.element.style.background = `crimson`;
-    }
-
-    if (this.y + this.size >= window.innerHeight) {
-      this.dy *= -1;
-      this.element.style.background = `crimson`;
-    }
-    if (this.y < 0) {
-      this.dy *= -1;
-      this.element.style.background = `crimson`;
-    }
-
     this.x += this.vx * this.dx;
     this.y += this.vy * this.dy;
+    this.hitDetection();
   };
 }

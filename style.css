@@ -5,8 +5,7 @@
 }
 
 body {
-  min-height: 100vh;
-  color: whitesmoke;
+  height: 100vh;
   background: radial-gradient(#444, #000);
   overflow: hidden;
 }
