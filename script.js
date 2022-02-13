@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   console.log("loaded...");
 
   loop = () => {
-    balls.forEach((ball) => ball.update());
     balls.forEach((ball) => ball.render());
+    balls.forEach((ball) => ball.update());
     requestAnimationFrame(loop);
   };
   requestAnimationFrame(loop);
