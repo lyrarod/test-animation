@@ -8,8 +8,8 @@ export default class Sprite {
     this.centerY = window.innerHeight / 2 - this.size / 2;
     this.x = this.centerX;
     this.y = this.centerY;
-    this.dx = this.randDirection();
-    this.dy = this.randDirection();
+    this.dx = this.randDirection;
+    this.dy = this.randDirection;
     this.vx = 0.3 + Math.random() * 3;
     this.vy = 0.3 + Math.random() * 3;
     this.color = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
@@ -18,11 +18,11 @@ export default class Sprite {
     console.log(this.opacity);
   }
 
-  randDirection = () => {
+  get randDirection() {
     const directions = [-1, 1];
     const rand = Math.floor(Math.random() * directions.length);
     return directions[rand];
-  };
+  }
 
   render = () => {
     const ball = this.element;
