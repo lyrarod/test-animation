@@ -1,4 +1,4 @@
-export class Sprite {
+export default class Sprite {
   constructor() {
     this.div = document.createElement("div");
     this.element = document.body.appendChild(this.div);
@@ -13,7 +13,9 @@ export class Sprite {
     this.vx = 0.3 + Math.random() * 3;
     this.vy = 0.3 + Math.random() * 3;
     this.color = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
-    this.opacity = 0.3 + Math.random() * 0.7;
+    this.opacity = 0.1 + Math.random() * 0.9;
+
+    console.log(this.opacity);
   }
 
   randDirection = () => {

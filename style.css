@@ -6,13 +6,7 @@
 
 body {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
   color: whitesmoke;
-  background-color: #333;
+  background: radial-gradient(#444, #000);
   overflow: hidden;
-}
-
-#myCanvas {
-  background-color: silver;
 }
