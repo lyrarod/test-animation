@@ -1,4 +1,4 @@
-import { loop, start } from "./loop.js";
+import { start } from "./loop.js";
 
 window.addEventListener("load", () => {
   start();

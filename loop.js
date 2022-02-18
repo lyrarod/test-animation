@@ -2,15 +2,15 @@ import Sprite from "./sprite.js";
 
 let balls = [];
 
-export const loop = () => {
-  render();
-  update();
-  requestAnimationFrame(loop);
-};
-
 export const start = () => {
   init();
   loop();
+};
+
+const loop = () => {
+  render();
+  update();
+  requestAnimationFrame(loop);
 };
 
 const init = () => {
