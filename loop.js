@@ -7,14 +7,9 @@ export const start = () => {
   loop();
 };
 
-const loop = () => {
-  render();
-  update();
-  requestAnimationFrame(loop);
-};
-
 const init = () => {
   console.log("init...");
+
   let numBalls = 100;
 
   for (let i = 0; i < numBalls; i++) {
@@ -23,12 +18,18 @@ const init = () => {
   console.log(balls);
 };
 
-const update = () => {
-  // console.log("update...");
-  balls.map((ball) => ball.update());
+const loop = () => {
+  render();
+  update();
+  requestAnimationFrame(loop);
 };
 
 const render = () => {
   // console.log("render...");
   balls.map((ball) => ball.render());
+};
+
+const update = () => {
+  // console.log("update...");
+  balls.map((ball) => ball.update());
 };
