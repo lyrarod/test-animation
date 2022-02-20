@@ -1,5 +1,3 @@
 import { start } from "./loop.js";
 
-window.addEventListener("load", () => {
-  start();
-});
+window.addEventListener("load", start);
