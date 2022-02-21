@@ -1,7 +1,7 @@
 export default class Sprite {
   constructor() {
-    this.div = document.createElement("div");
-    this.element = document.body.appendChild(this.div);
+    this.element = document.createElement("div");
+    document.body.appendChild(this.element);
     this.sprites = [];
 
     this.size = 10 + Math.random() * 40;
@@ -17,6 +17,15 @@ export default class Sprite {
     this.opacity = 0.3 + Math.random() * 0.7;
   }
 
+  createSprites = (n) => {
+    Array(n)
+      .fill()
+      .map(() => this.newSprite(new Sprite()));
+    // console.log(this.sprites);
+  };
+
+  newSprite = (sprite) => this.sprites.push(sprite);
+
   get _hitBackgroundColor() {
     return (this.element.style.background = `red`);
   }
@@ -26,8 +35,6 @@ export default class Sprite {
     const rand = Math.floor(Math.random() * directions.length);
     return directions[rand];
   }
-
-  newSprite = (sprite) => this.sprites.push(sprite);
 
   boundCollision = () => {
     if (this.x <= 0 || this.x + this.size >= window.innerWidth) {
