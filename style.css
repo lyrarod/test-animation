@@ -6,6 +6,16 @@
 
 body {
   height: 100vh;
-  background: radial-gradient(#444, #000);
+  background: linear-gradient(rebeccapurple, skyblue);
   overflow: hidden;
+}
+
+button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 160px;
+  padding: 16px;
+  cursor: pointer;
+  z-index: 1;
 }

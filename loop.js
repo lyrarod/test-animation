@@ -1,6 +1,20 @@
 import Sprite from "./sprite.js";
 
-let balls = [];
+let balls = new Sprite();
+let isPaused = false;
+
+const btn = document.createElement("button");
+btn.textContent = "PAUSE";
+document.body.appendChild(btn);
+
+btn.addEventListener("click", togglePlayPause);
+
+function togglePlayPause() {
+  isPaused = !isPaused;
+  isPaused ? (btn.textContent = "PLAY") : (btn.textContent = "PAUSE");
+
+  console.log("PAUSED:", isPaused);
+}
 
 export const start = () => {
   init();
@@ -10,12 +24,13 @@ export const start = () => {
 const init = () => {
   console.log("init...");
 
-  let numBalls = 100;
+  let numberOfBalls = 100;
 
-  for (let i = 0; i < numBalls; i++) {
-    balls.push(new Sprite());
-  }
-  console.log(balls);
+  Array(numberOfBalls)
+    .fill()
+    .map(() => balls.newSprite(new Sprite()));
+
+  console.log(balls.sprites);
 };
 
 const loop = () => {
@@ -26,10 +41,12 @@ const loop = () => {
 
 const render = () => {
   // console.log("render...");
-  balls.map((ball) => ball.render());
+  balls.sprites.map((b) => b.render());
 };
 
 const update = () => {
   // console.log("update...");
-  balls.map((ball) => ball.update());
+  if (!isPaused) {
+    balls.sprites.map((b) => b.update());
+  }
 };
